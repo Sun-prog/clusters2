@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Journal {
-    String        number;
+    int        number;
     List<Article> listArticle  = new ArrayList<Article>();
     List<Article> listArticleSource;
     List<Article> listArticleCopy ;
@@ -21,7 +21,24 @@ public class Journal {
     String        oecdCode;
     int           numberRepeat =1;
 
-    public Journal(String number, Cluster cluster) {
+    boolean isUniTitle;
+    boolean isUniRince;
+    boolean isUniRus;
+    boolean isRus;
+
+    String nameJournalUni;
+    String nameJournalRince;
+
+    String place;
+    String city;
+    int numberIssues;
+    int uniQuantityArticles;
+    int uniQuantityArticlesFullText;
+    int numberCitations;
+    int numberArticlesPerIssue;
+    int numberIssuesPerYear;
+
+    public Journal(int number, Cluster cluster) {
         this.number = number;
         addCluster(cluster);
         listArticleSource  = new ArrayList<Article>();
@@ -30,6 +47,20 @@ public class Journal {
         listSrstiTopic = new ArrayList<String>();
         listOecdCode = new ArrayList<String>();
         listOecdTopic = new ArrayList<String>();
+        this.isUniTitle = false;
+        this.isUniRince = false;
+        this.isUniRus = false;
+        this.isRus = false;
+        this.nameJournalUni = "null";
+        this.nameJournalRince = "null";
+        this.place = "null";
+        this.city = "null";
+        this.numberIssues = 0;
+        this.uniQuantityArticles = 0;
+        this.uniQuantityArticlesFullText = 0;
+        this.numberCitations = 0;
+        this.numberArticlesPerIssue = 0;
+        this.numberIssuesPerYear = 0;
 
     }
     public String listArticleSourceToString() {
@@ -162,11 +193,11 @@ public class Journal {
         return listJournalCluster;
     }
 
-    public String getNumber() {
+    public int getNumber() {
         return number;
     }
 
-    public void setNumber(String number) {
+    public void setNumber(int number) {
         this.number = number;
     }
 
@@ -216,5 +247,110 @@ public class Journal {
 
     public void increaseNumberRepeat() {
         numberRepeat++;
+    }
+
+    public String getPlace() {
+        return place;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+
+    public boolean isUniTitle() {
+        return isUniTitle;
+    }
+
+    public void setUniTitle(boolean uniTitle) {
+        isUniTitle = uniTitle;
+    }
+
+    public boolean isUniRince() {
+        return isUniRince;
+    }
+
+    public void setUniRince(boolean uniRince) {
+        isUniRince = uniRince;
+    }
+
+    public boolean isUniRus() {
+        return isUniRus;
+    }
+
+    public void setUniRus(boolean uniRus) {
+        isUniRus = uniRus;
+    }
+
+    public String getNameJournalUni() {
+        return nameJournalUni;
+    }
+
+    public void setNameJournalUni(String nameJournalUni) {
+        this.nameJournalUni = nameJournalUni;
+    }
+
+    public String getNameJournalRince() {
+        return nameJournalRince;
+    }
+
+    public void setNameJournalRince(String nameJournalRince) {
+        this.nameJournalRince = nameJournalRince;
+    }
+
+    public int getNumberIssues() {
+        return numberIssues;
+    }
+
+    public void setNumberIssues(int numberIssues) {
+        this.numberIssues = numberIssues;
+    }
+
+    public int getUniQuantityArticles() {
+        return uniQuantityArticles;
+    }
+
+    public void setUniQuantityArticles(int uniQuantityArticles) {
+        this.uniQuantityArticles = uniQuantityArticles;
+    }
+
+    public int getUniQuantityArticlesFullText() {
+        return uniQuantityArticlesFullText;
+    }
+
+    public void setUniQuantityArticlesFullText(int uniQuantityArticlesFullText) {
+        this.uniQuantityArticlesFullText = uniQuantityArticlesFullText;
+    }
+
+    public int getNumberCitations() {
+        return numberCitations;
+    }
+
+    public void setNumberCitations(int numberCitations) {
+        this.numberCitations = numberCitations;
+    }
+
+    public int getNumberArticlesPerIssue() {
+        return numberArticlesPerIssue;
+    }
+
+    public void setNumberArticlesPerIssue(int numberArticlesPerIssue) {
+        this.numberArticlesPerIssue = numberArticlesPerIssue;
+    }
+
+    public int getNumberIssuesPerYear() {
+        return numberIssuesPerYear;
+    }
+
+    public void setNumberIssuesPerYear(int numberIssuesPerYear) {
+        this.numberIssuesPerYear = numberIssuesPerYear;
     }
 }

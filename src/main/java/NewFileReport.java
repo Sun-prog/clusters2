@@ -88,6 +88,46 @@ public class NewFileReport {
 
         // 6 строка
         cell = row.createCell(0, CellType.STRING);
+        cell.setCellValue("Number read in file Uni title names");
+
+        cell = row.createCell(1, CellType.NUMERIC);
+        cell.setCellValue(listCheck.get(5));
+
+        rownum++;
+        row = sheet.createRow(rownum);
+
+        // 7 строка
+        cell = row.createCell(0, CellType.STRING);
+        cell.setCellValue("Quantity read null (NumberIssuesPerYear=0) in Rince table");
+
+        cell = row.createCell(1, CellType.NUMERIC);
+        cell.setCellValue(listCheck.get(7));
+
+        rownum++;
+        row = sheet.createRow(rownum);
+
+        // 8 строка
+        cell = row.createCell(0, CellType.STRING);
+        cell.setCellValue("Number read in file Rince names");
+
+        cell = row.createCell(1, CellType.NUMERIC);
+        cell.setCellValue(listCheck.get(6));
+
+        rownum++;
+        row = sheet.createRow(rownum);
+
+        // 9 строка
+        cell = row.createCell(0, CellType.STRING);
+        cell.setCellValue("Number read in file id journals rus");
+
+        cell = row.createCell(1, CellType.NUMERIC);
+        cell.setCellValue(listCheck.get(8));
+
+        rownum++;
+        row = sheet.createRow(rownum);
+
+        // 10 строка
+        cell = row.createCell(0, CellType.STRING);
         cell.setCellValue("Number break clusters");
 
         //заголовки
@@ -117,7 +157,7 @@ public class NewFileReport {
             }
 
 
-            File file = new File("C:/Users/grupp/report.xlsx");
+            File file = new File("C:/Users/grupp/Documents/data/article/report.xlsx");
             file.getParentFile().mkdirs();
 
             FileOutputStream outFile = new FileOutputStream(file);

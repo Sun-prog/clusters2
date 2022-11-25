@@ -8,12 +8,12 @@ public class Article {
     String        oecdTopic;
     String        oecdCode;
     Journal       journal;
-    String        journalNumber;
+    int        journalNumber;
     Cluster       cluster;
     int           clusterNumber;
     boolean source = false;
 
-    public Article(int number, Cluster cluster, int clusterNumber, String journalNumber, String srstiCode, String srstiTopic, String oecdCode, String oecdTopic) {
+    public Article(int number, Cluster cluster, int clusterNumber, int journalNumber, String srstiCode, String srstiTopic, String oecdCode, String oecdTopic) {
         this.number = number;
         this.cluster = cluster;
         this.clusterNumber = clusterNumber;
@@ -105,7 +105,7 @@ public class Article {
         this.oecdCode = oecdCode;
     }
 
-    public String getJournalNumber() {
+    public int getJournalNumber() {
         return journalNumber;
     }
 }

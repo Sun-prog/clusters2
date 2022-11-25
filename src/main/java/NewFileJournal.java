@@ -7,9 +7,8 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
+//import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 //import org.jsoup.nodes.Document;
@@ -84,6 +83,59 @@ public class NewFileJournal {
         cell = row.createCell(13, CellType.STRING);
         cell.setCellValue("Quantity SRSTI code");
 
+        //14 нашелся ли журнал в таблице UniTitles Names
+        cell = row.createCell(14, CellType.STRING);
+        cell.setCellValue("Find in UniTitles Names");
+
+        //15 наименование журнала из таблицы Uni title names
+        cell = row.createCell(15, CellType.STRING);
+        cell.setCellValue("Uni Title Name");
+
+        //16 нашелся ли журнал в таблице Rince Titles Names
+        cell = row.createCell(16, CellType.STRING);
+        cell.setCellValue("Find in Rince Titles Names");
+
+        //17 наименование журнала из таблицы Rince title names
+        cell = row.createCell(17, CellType.STRING);
+        cell.setCellValue("Rince Title Name");
+
+        //18 какой университет печатает
+        cell = row.createCell(18, CellType.STRING);
+        cell.setCellValue("place");
+
+        //19 город издания журнала
+        cell = row.createCell(19, CellType.STRING);
+        cell.setCellValue("City");
+
+        //20 общее число выпусков журнала
+        cell = row.createCell(20, CellType.STRING);
+        cell.setCellValue("Общее число выпусков журнала");
+
+        //21 Общее число статей из журнала
+        cell = row.createCell(21, CellType.STRING);
+        cell.setCellValue("Общее число статей из журнала");
+
+        //22 общее число статей с полными текстами
+        cell = row.createCell(22, CellType.STRING);
+        cell.setCellValue("Общее число статей с полными текстами");
+
+        //23 суммарное число цитирований
+        cell = row.createCell(23, CellType.STRING);
+        cell.setCellValue("Суммарное число цитирований журнала в РИНЦ");
+
+        //24 Среднее число статей в выпуске
+        cell = row.createCell(24, CellType.STRING);
+        cell.setCellValue("Среднее число статей в выпуске");
+
+        //25 Число выпусков в год
+        cell = row.createCell(25, CellType.STRING);
+        cell.setCellValue("Число выпусков в год");
+
+        //26 Число выпусков в год
+        cell = row.createCell(26, CellType.STRING);
+        cell.setCellValue("Нахождение в id-journals-rus");
+
+
         try {
 
 
@@ -149,10 +201,62 @@ public class NewFileJournal {
                 cell = row.createCell(13, CellType.NUMERIC);
                 cell.setCellValue(journal.getListSrstiTopic().size());
 
+                //14 нашелся ли журнал в таблице UniTitles Names
+                cell = row.createCell(14, CellType.BOOLEAN);
+                cell.setCellValue(journal.isUniTitle);
+
+                //15 наименование журнала из таблицы Uni title names
+                cell = row.createCell(15, CellType.STRING);
+                cell.setCellValue(journal.getNameJournalUni());
+
+                //16 нашелся ли журнал в таблице Rince Titles Names
+                cell = row.createCell(16, CellType.BOOLEAN);
+                cell.setCellValue(journal.isUniRince);
+
+                //17 наименование журнала из таблицы Rince title names
+                cell = row.createCell(17, CellType.STRING);
+                cell.setCellValue(journal.getNameJournalRince());
+
+                //18 какой университет печатает
+                cell = row.createCell(18, CellType.STRING);
+                cell.setCellValue(journal.getPlace());
+
+                //19 город издания журнала
+                cell = row.createCell(19, CellType.STRING);
+                cell.setCellValue(journal.getCity());
+
+                //20 общее число выпусков журнала
+                cell = row.createCell(20, CellType.NUMERIC);
+                cell.setCellValue(journal.getNumberIssues());
+
+                //21 Общее число статей из журнала
+                cell = row.createCell(21, CellType.NUMERIC);
+                cell.setCellValue(journal.getUniQuantityArticles());
+
+                //22 общее число статей с полными текстами
+                cell = row.createCell(22, CellType.NUMERIC);
+                cell.setCellValue(journal.getUniQuantityArticlesFullText());
+
+                //23 суммарное число цитирований
+                cell = row.createCell(23, CellType.NUMERIC);
+                cell.setCellValue(journal.getNumberCitations());
+
+                //24 Среднее число статей в выпуске
+                cell = row.createCell(24, CellType.NUMERIC);
+                cell.setCellValue(journal.getNumberArticlesPerIssue());
+
+                //25 Число выпусков в год
+                cell = row.createCell(25, CellType.STRING);
+                cell.setCellValue(journal.getNumberIssuesPerYear());
+
+                //26 Число выпусков в год
+                cell = row.createCell(26, CellType.BOOLEAN);
+                cell.setCellValue(journal.isRus);
+
             }
 
 
-            File file = new File("C:/Users/journal.xlsx");
+            File file = new File("C:/Users/grupp/Documents/data/article/journal.xlsx");
             file.getParentFile().mkdirs();
 
             FileOutputStream outFile = new FileOutputStream(file);

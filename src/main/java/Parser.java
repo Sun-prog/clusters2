@@ -65,61 +65,64 @@ public class Parser {
     }
 
     private static void findSource(Cluster cluster) {
-        List<Article> listArticle = ArticleDAO.listArticle();
-        List<Journal> listJournal = JournalDAO.listJournal();
 
-        for (Article article : listArticle) {
-            if (article.getCluster()==cluster){
+        if (cluster.isCorrect) {
+            List<Article> listArticle = ArticleDAO.listArticle();
+            List<Journal> listJournal = JournalDAO.listJournal();
 
-                cluster.addArticle(article);
+            for (Article article : listArticle) {
+                if (article.getCluster()==cluster){
 
-            }
-        }
+                    cluster.addArticle(article);
 
-        List<Article> listClusterArticle = cluster.getListArticle();
-
-        int sourceNumber = listClusterArticle.get(0).getNumber();
-
-        for (Article article : listClusterArticle) {
-            if (article.getNumber() < sourceNumber) {
-                sourceNumber = article.getNumber();
-            }
-        }
-
-        for (Article article : listClusterArticle) {
-
-            for (Journal journal : listJournal) {
-                if (article.getJournalNumber().equals(journal.getNumber())){
-
-                    article.setJournal(journal);
-                    cluster.addJournal(article.getJournal());
-                    journal.addArticle(article);
-                    if (!existSrstiCode(article.getSrstiCode(), journal)) {
-                        journal.addListSrstiCode(article.getSrstiCode());
-                        journal.addListSrstiTopic(article.getSrstiTopic());
-                    }
-                    if (!existOecdCode(article.getOecdCode(), journal)) {
-                        journal.addListOecdCode(article.getOecdCode());
-                        journal.addListOecdTopic(article.getOecdTopic());
-                    }
-
-                    if (article.getNumber() == sourceNumber) {
-                        article.setSource(true);
-
-                        journal.addArticleListSource(article);
-                    }
-                    else journal.addArticleListCopy(article);
                 }
+            }
 
+            List<Article> listClusterArticle = cluster.getListArticle();
+
+            int sourceNumber = listClusterArticle.get(0).getNumber();
+
+            for (Article article : listClusterArticle) {
+                if (article.getNumber() < sourceNumber) {
+                    sourceNumber = article.getNumber();
+                }
+            }
+
+            for (Article article : listClusterArticle) {
+
+                for (Journal journal : listJournal) {
+                    if (article.getJournalNumber()==journal.getNumber()){
+
+                        article.setJournal(journal);
+                        cluster.addJournal(article.getJournal());
+                        journal.addArticle(article);
+                        if (!existSrstiCode(article.getSrstiCode(), journal)) {
+                            journal.addListSrstiCode(article.getSrstiCode());
+                            journal.addListSrstiTopic(article.getSrstiTopic());
+                        }
+                        if (!existOecdCode(article.getOecdCode(), journal)) {
+                            journal.addListOecdCode(article.getOecdCode());
+                            journal.addListOecdTopic(article.getOecdTopic());
+                        }
+
+                        if (article.getNumber() == sourceNumber) {
+                            article.setSource(true);
+
+                            journal.addArticleListSource(article);
+                        }
+                        else journal.addArticleListCopy(article);
+                    }
+
+                }
             }
         }
 
     }
 
-    public static boolean existJournals(String number, Cluster cluster) {
+    public static boolean existJournals(int number, Cluster cluster) {
         List<Journal> list = JournalDAO.listJournal();
         for (Journal journal : list) {
-            if (journal.getNumber().equals(number) == true) {
+            if (journal.getNumber()==number) {
                 journal.setNumberRepeat(journal.getNumberRepeat() + 1);
                 if (!journal.containCluster(cluster)) {
                     journal.addCluster(cluster);
@@ -251,21 +254,32 @@ public class Parser {
                     newClaster.setCorrect(false);
                 } else {
 
-                    for (int i = 0; i < s2_Articles.length; i++) {
-                        // System.out.println("к добавлению статья "+s2_Articles[i]+ " в журнале "+ s2_Journals[i]+" в кластере "+y);
-                        int numberArticle = Integer.parseInt(s2_Articles[i]);
-                        //System.out.println("numberArticle "+numberArticle);
-                        //newClaster.addArticle(cluster);
-                        if (existArticles(numberArticle)) {
-                            System.out.println("Article is exist.Number " + s2_Articles[i]);
-                        } else {
-                            if (!existJournals(s2_Journals[i], newClaster)) {
-                                JournalDAO.list.add(new Journal(s2_Journals[i], newClaster));
+                    try {
+                        for (int i = 0; i < s2_Articles.length; i++) {
+                            // System.out.println("к добавлению статья "+s2_Articles[i]+ " в журнале "+ s2_Journals[i]+" в кластере "+y);
+                            int numberArticle = 0;
+                            int numberJournal = 0;
 
+                                numberArticle = Integer.parseInt(s2_Articles[i]);
+                                numberJournal = Integer.parseInt(s2_Journals[i]);
+
+
+                            //System.out.println("numberArticle "+numberArticle);
+                            //newClaster.addArticle(cluster);
+                            if (existArticles(numberArticle)) {
+                                System.out.println("Article is exist.Number " + s2_Articles[i]);
+                            } else {
+                                if (!existJournals(numberJournal, newClaster)) {
+                                    JournalDAO.list.add(new Journal(numberJournal, newClaster));
+
+                                }
+                                ArticleDAO.list.add(new Article(numberArticle, newClaster, y, numberJournal, newClaster.getSrstiCode(),
+                                        newClaster.getSrstiTopic(), newClaster.getOecdCode(), newClaster.getOecdTopic()));
                             }
-                            ArticleDAO.list.add(new Article(numberArticle, newClaster, y, s2_Journals[i], newClaster.getSrstiCode(),
-                                    newClaster.getSrstiTopic(), newClaster.getOecdCode(), newClaster.getOecdTopic()));
                         }
+                    } catch (NumberFormatException e) {
+                        newClaster.setCorrect(false);
+                        e.printStackTrace();
                     }
                     findSource(newClaster);
                 }
@@ -294,7 +308,7 @@ public class Parser {
 
             file.close();
 
-            FileOutputStream outFile =new FileOutputStream(new File("C:/Users/clusters_update.xlsx"));
+            FileOutputStream outFile =new FileOutputStream(new File("C:/Users/doc.xlsx"));
             wb.write(outFile);
             outFile.close();
 
