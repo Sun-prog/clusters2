@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Journal {
     int        number;
@@ -38,6 +36,69 @@ public class Journal {
     int numberArticlesPerIssue;
     int numberIssuesPerYear;
 
+    HashMap<Integer, Double> probabilityQuotingReading = new HashMap<Integer, Double>();
+    double medianProbabilityQuotingReading = 0;
+    double maxProbabilityQuotingReading;
+
+    HashMap<Integer, Double> twoYearImpactFactorCore = new HashMap<Integer, Double>();
+    double medianTwoYearImpactFactorCore = 0;
+    double maxTwoYearImpactFactorCore;
+
+    HashMap<Integer, Double> twoYearImpactFactorCoreWithoutCitations = new HashMap<Integer, Double>();
+    double medianTwoYearImpactFactorCoreWithoutCitations = 0;
+    double maxTwoYearImpactFactorCoreWithoutCitations;
+
+    HashMap<Integer, Double> twoYearImpactFactor = new HashMap<Integer, Double>();
+    double medianTwoYearImpactFactor = 0;
+    double maxTwoYearImpactFactor;
+
+    HashMap<Integer, Double> twoYearImpactFactorWithoutCitations = new HashMap<Integer, Double>();
+    double medianTwoYearImpactFactorWithoutCitations = 0;
+    double maxTwoYearImpactFactorWithoutCitations;
+
+    HashMap<Integer, Double> twoYearImpactFactorWithCitations = new HashMap<Integer, Double>();
+    double medianTwoYearImpactFactorWithCitations = 0;
+    double maxTwoYearImpactFactorWithCitations;
+
+    HashMap<Integer, Double> twoYearСoefficientAuthorSelfCitation = new HashMap<Integer, Double>();
+    double medianTwoYearСoefficientAuthorSelfCitation = 0;
+    double maxTwoYearСoefficientAuthorSelfCitation;
+
+    HashMap<Integer, Double> twoYearСoefficientAuthorCitation = new HashMap<Integer, Double>();
+    double medianTwoYearСoefficientAuthorCitation = 0;
+    double maxTwoYearСoefficientAuthorCitation;
+
+
+    HashMap<Integer, Double> tenYearHirschIndex = new HashMap<Integer, Double>();
+    double medianTenYearHirschIndex = 0;
+    double maxTenYearHirschIndex;
+
+
+    HashMap<Integer, Double> indexGini = new HashMap<Integer, Double>();
+    double medianIndexGini = 0;
+    double maxIndexGini;
+
+
+    HashMap<Integer, Double> indexHerfindahlAuthorOrganizations = new HashMap<Integer, Double>();
+    double medianIndexHerfindahlAuthorOrganizations = 0;
+    double maxIndexHerfindahlAuthorOrganizations;
+
+
+    HashMap<Integer, Double> placeScienceIndexRanking = new HashMap<Integer, Double>();
+    double medianPlaceScienceIndexRanking = 0;
+    double maxPlaceScienceIndexRanking;
+
+
+    HashMap<Integer, Double> totalNumberCitationsCurrentYear = new HashMap<Integer, Double>();
+    double medianTotalNumberCitationsCurrentYear = 0;
+    double maxTotalNumberCitationsCurrentYear;
+
+
+    HashMap<Integer, Double> totalNumberCitationsCurrentYearSelf = new HashMap<Integer, Double>();
+    double medianTotalNumberCitationsCurrentYearSelf = 0;
+    double maxTotalNumberCitationsCurrentYearSelf;
+
+
     public Journal(int number, Cluster cluster) {
         this.number = number;
         addCluster(cluster);
@@ -63,6 +124,8 @@ public class Journal {
         this.numberIssuesPerYear = 0;
 
     }
+
+
     public String listArticleSourceToString() {
         String listString = "";
         for (Article a : listArticleSource)
@@ -130,7 +193,7 @@ public class Journal {
         String listString = "";
         for (String a : listSrstiCode)
         {
-            listString += a + " ";
+            listString += a + ";";
         }
         return listString;
     }
@@ -139,7 +202,7 @@ public class Journal {
         String listString = "";
         for (String a : listSrstiTopic)
         {
-            listString += a + " ";
+            listString += a + ";";
         }
         return listString;
     }
@@ -147,7 +210,7 @@ public class Journal {
         String listString = "";
         for (String a : listOecdCode)
         {
-            listString += a + " ";
+            listString += a + ";";
         }
         return listString;
     }
@@ -156,9 +219,417 @@ public class Journal {
         String listString = "";
         for (String a : listOecdTopic)
         {
-            listString += a + " ";
+            listString += a + ";";
         }
         return listString;
+    }
+
+    public String getProbabilityQuotingReading() {
+        TreeMap<Integer, Double> sorted = new TreeMap<Integer, Double>();
+        sorted.putAll(probabilityQuotingReading);
+        String result ="";
+        // Display the TreeMap which is naturally sorted
+        for (Map.Entry<Integer, Double> entry : sorted.entrySet())
+            result = result+ entry.getKey() +
+                    ":" + entry.getValue()+ "|";
+
+        return result;
+    }
+
+    public String getTwoYearImpactFactorCore() {
+        TreeMap<Integer, Double> sorted = new TreeMap<Integer, Double>();
+        sorted.putAll(twoYearImpactFactorCore);
+        String result ="";
+        // Display the TreeMap which is naturally sorted
+        for (Map.Entry<Integer, Double> entry : sorted.entrySet())
+            result = result+ entry.getKey() +
+                    ":" + entry.getValue()+ "|";
+
+        return result;
+    }
+
+    public String getTwoYearImpactFactorCoreWithoutCitations() {
+        TreeMap<Integer, Double> sorted = new TreeMap<Integer, Double>();
+        sorted.putAll(twoYearImpactFactorCoreWithoutCitations);
+        String result ="";
+        // Display the TreeMap which is naturally sorted
+        for (Map.Entry<Integer, Double> entry : sorted.entrySet())
+            result = result+ entry.getKey() +
+                    ":" + entry.getValue()+ "|";
+
+        return result;
+    }
+
+    public String getTwoYearImpactFactor() {
+        TreeMap<Integer, Double> sorted = new TreeMap<Integer, Double>();
+        sorted.putAll(twoYearImpactFactor);
+        String result ="";
+        // Display the TreeMap which is naturally sorted
+        for (Map.Entry<Integer, Double> entry : sorted.entrySet())
+            result = result+ entry.getKey() +
+                    ":" + entry.getValue()+ "|";
+
+        return result;
+    }
+
+    public String getTwoYearImpactFactorWithoutCitations() {
+        TreeMap<Integer, Double> sorted = new TreeMap<Integer, Double>();
+        sorted.putAll(twoYearImpactFactorWithoutCitations);
+        String result ="";
+        // Display the TreeMap which is naturally sorted
+        for (Map.Entry<Integer, Double> entry : sorted.entrySet())
+            result = result+ entry.getKey() +
+                    ":" + entry.getValue()+ "|";
+
+        return result;
+    }
+
+    public String getTwoYearImpactFactorWithCitations() {
+        TreeMap<Integer, Double> sorted = new TreeMap<Integer, Double>();
+        sorted.putAll(twoYearImpactFactorWithCitations);
+        String result ="";
+        // Display the TreeMap which is naturally sorted
+        for (Map.Entry<Integer, Double> entry : sorted.entrySet())
+            result = result+ entry.getKey() +
+                    ":" + entry.getValue()+ "|";
+
+        return result;
+    }
+
+    public String getTwoYearСoefficientAuthorSelfCitation() {
+        TreeMap<Integer, Double> sorted = new TreeMap<Integer, Double>();
+        sorted.putAll(twoYearСoefficientAuthorSelfCitation);
+        String result ="";
+        // Display the TreeMap which is naturally sorted
+        for (Map.Entry<Integer, Double> entry : sorted.entrySet())
+            result = result+ entry.getKey() +
+                    ":" + entry.getValue()+ "|";
+
+        return result;
+    }
+
+    public String getTwoYearСoefficientAuthorCitation() {
+        TreeMap<Integer, Double> sorted = new TreeMap<Integer, Double>();
+        sorted.putAll(twoYearСoefficientAuthorCitation);
+        String result ="";
+        // Display the TreeMap which is naturally sorted
+        for (Map.Entry<Integer, Double> entry : sorted.entrySet())
+            result = result+ entry.getKey() +
+                    ":" + entry.getValue()+ "|";
+
+        return result;
+    }
+
+    public void addProbabilityQuotingReading(Integer year, double value) {
+        probabilityQuotingReading.put(year, value);
+    }
+
+    public void addTwoYearImpactFactorCore(Integer year, double value) {
+        twoYearImpactFactorCore.put(year, value);
+    }
+
+    public void addTwoYearImpactFactorCoreWithoutCitations(Integer year, double value) {
+        twoYearImpactFactorCoreWithoutCitations.put(year, value);
+    }
+
+    public void addTwoYearImpactFactor(Integer year, double value) {
+        twoYearImpactFactor.put(year, value);
+    }
+
+    public void addTwoYearImpactFactorWithoutCitations(Integer year, double value) {
+        twoYearImpactFactorWithoutCitations.put(year, value);
+    }
+    public void addTwoYearImpactFactorWithCitations(Integer year, double value) {
+        twoYearImpactFactorWithCitations.put(year, value);
+    }
+
+    public void addTwoYearСoefficientAuthorSelfCitation(Integer year, double value) {
+        twoYearСoefficientAuthorSelfCitation.put(year, value);
+    }
+
+    public void addTenYearHirschIndex(Integer year, double value) {
+        tenYearHirschIndex.put(year, value);
+    }
+
+    public void addPlaceScienceIndexRanking(Integer year, double value) {
+        placeScienceIndexRanking.put(year, value);
+    }
+
+    public void addTotalNumberCitationsCurrentYear(Integer year, double value) {
+        totalNumberCitationsCurrentYear.put(year, value);
+    }
+
+    public void addTotalNumberCitationsCurrentYearSelf(Integer year, double value) {
+        totalNumberCitationsCurrentYearSelf.put(year, value);
+    }
+
+    public void addIndexGini(Integer year, double value) {
+        indexGini.put(year, value);
+    }
+
+
+    public void addIndexHerfindahlAuthorOrganizations(Integer year, double value) {
+        indexHerfindahlAuthorOrganizations.put(year, value);
+    }
+
+    public void addTwoYearСoefficientAuthorCitation(Integer year, double value) {
+        twoYearСoefficientAuthorCitation.put(year, value);
+    }
+
+    public String getTenYearHirschIndex() {
+        TreeMap<Integer, Double> sorted = new TreeMap<Integer, Double>();
+        sorted.putAll(tenYearHirschIndex);
+        String result ="";
+        // Display the TreeMap which is naturally sorted
+        for (Map.Entry<Integer, Double> entry : sorted.entrySet())
+            result = result+ entry.getKey() +
+                    ":" + entry.getValue()+ "|";
+
+        return result;
+    }
+
+    public double getMedianTenYearHirschIndex() {
+        medianTenYearHirschIndex = getMedian(tenYearHirschIndex);
+        return medianTenYearHirschIndex;
+    }
+
+    public double getMaxTenYearHirschIndex() {
+        maxTenYearHirschIndex = getMax(tenYearHirschIndex);
+        return maxTenYearHirschIndex;
+    }
+
+    public String getIndexGini() {
+        TreeMap<Integer, Double> sorted = new TreeMap<Integer, Double>();
+        sorted.putAll(indexGini);
+        String result ="";
+        // Display the TreeMap which is naturally sorted
+        for (Map.Entry<Integer, Double> entry : sorted.entrySet())
+            result = result+ entry.getKey() +
+                    ":" + entry.getValue()+ "|";
+
+        return result;
+    }
+
+    public double getMedianIndexGini() {
+        medianIndexGini = getMedian(indexGini);
+        return medianIndexGini;
+    }
+
+    public double getMaxIndexGini() {
+        maxIndexGini = getMax(indexGini);
+        return maxIndexGini;
+    }
+
+    public String getIndexHerfindahlAuthorOrganizations() {
+        TreeMap<Integer, Double> sorted = new TreeMap<Integer, Double>();
+        sorted.putAll(indexHerfindahlAuthorOrganizations);
+        String result ="";
+        // Display the TreeMap which is naturally sorted
+        for (Map.Entry<Integer, Double> entry : sorted.entrySet())
+            result = result+ entry.getKey() +
+                    ":" + entry.getValue()+ "|";
+
+        return result;
+    }
+
+    public double getMedianIndexHerfindahlAuthorOrganizations() {
+        medianIndexHerfindahlAuthorOrganizations = getMedian(indexHerfindahlAuthorOrganizations);
+        return medianIndexHerfindahlAuthorOrganizations;
+    }
+
+    public double getMaxIndexHerfindahlAuthorOrganizations() {
+        maxIndexHerfindahlAuthorOrganizations = getMax(indexHerfindahlAuthorOrganizations);
+        return maxIndexHerfindahlAuthorOrganizations;
+    }
+
+    public String getPlaceScienceIndexRanking() {
+        TreeMap<Integer, Double> sorted = new TreeMap<Integer, Double>();
+        sorted.putAll(placeScienceIndexRanking);
+        String result ="";
+        // Display the TreeMap which is naturally sorted
+        for (Map.Entry<Integer, Double> entry : sorted.entrySet())
+            result = result+ entry.getKey() +
+                    ":" + entry.getValue()+ "|";
+
+        return result;
+    }
+
+    public double getMedianPlaceScienceIndexRanking() {
+        medianPlaceScienceIndexRanking = getMedian(placeScienceIndexRanking);
+        return medianPlaceScienceIndexRanking;
+    }
+
+    public double getMaxPlaceScienceIndexRanking() {
+        maxPlaceScienceIndexRanking = getMax(placeScienceIndexRanking);
+        return maxPlaceScienceIndexRanking;
+    }
+
+    public String getTotalNumberCitationsCurrentYear() {
+        TreeMap<Integer, Double> sorted = new TreeMap<Integer, Double>();
+        sorted.putAll(totalNumberCitationsCurrentYear);
+        String result ="";
+        // Display the TreeMap which is naturally sorted
+        for (Map.Entry<Integer, Double> entry : sorted.entrySet())
+            result = result+ entry.getKey() +
+                    ":" + entry.getValue()+ "|";
+
+        return result;
+    }
+
+    public double getMedianTotalNumberCitationsCurrentYear() {
+        medianTotalNumberCitationsCurrentYear = getMedian(totalNumberCitationsCurrentYear);
+        return medianTotalNumberCitationsCurrentYear;
+    }
+
+    public double getMaxTotalNumberCitationsCurrentYear() {
+        maxTotalNumberCitationsCurrentYear = getMax(totalNumberCitationsCurrentYear);
+        return maxTotalNumberCitationsCurrentYear;
+    }
+
+    public String getTotalNumberCitationsCurrentYearSelf() {
+        TreeMap<Integer, Double> sorted = new TreeMap<Integer, Double>();
+        sorted.putAll(totalNumberCitationsCurrentYearSelf);
+        String result ="";
+        // Display the TreeMap which is naturally sorted
+        for (Map.Entry<Integer, Double> entry : sorted.entrySet())
+            result = result+ entry.getKey() +
+                    ":" + entry.getValue()+ "|";
+
+        return result;
+    }
+
+    public double getMedianTotalNumberCitationsCurrentYearSelf() {
+        medianTotalNumberCitationsCurrentYearSelf = getMedian(totalNumberCitationsCurrentYearSelf);
+        return medianTotalNumberCitationsCurrentYearSelf;
+    }
+
+    public double getMaxTotalNumberCitationsCurrentYearSelf() {
+        maxTotalNumberCitationsCurrentYearSelf = getMax(totalNumberCitationsCurrentYearSelf);
+        return maxTotalNumberCitationsCurrentYearSelf;
+    }
+
+    public double getMaxTwoYearСoefficientAuthorSelfCitation() {
+        maxTwoYearСoefficientAuthorSelfCitation = getMax(twoYearСoefficientAuthorSelfCitation);
+        return maxTwoYearСoefficientAuthorSelfCitation;
+    }
+
+    public double getMaxTwoYearСoefficientAuthorCitation() {
+        maxTwoYearСoefficientAuthorCitation = getMax(twoYearСoefficientAuthorCitation);
+        return maxTwoYearСoefficientAuthorCitation;
+    }
+
+    public double getMedianTwoYearImpactFactorCore() {
+        medianTwoYearImpactFactorCore = getMedian(twoYearImpactFactorCore);
+        return medianTwoYearImpactFactorCore;
+    }
+
+    public double getMaxTwoYearImpactFactorCore() {
+        maxTwoYearImpactFactorCore = getMax(twoYearImpactFactorCore);
+        return maxTwoYearImpactFactorCore;
+    }
+
+    public double getMedianTwoYearImpactFactorCoreWithoutCitations() {
+        medianTwoYearImpactFactorCoreWithoutCitations = getMedian(twoYearImpactFactorCoreWithoutCitations);
+        return medianTwoYearImpactFactorCoreWithoutCitations;
+    }
+
+    public double getMaxTwoYearImpactFactorCoreWithoutCitations() {
+        maxTwoYearImpactFactorCoreWithoutCitations = getMax(twoYearImpactFactorCoreWithoutCitations);
+        return maxTwoYearImpactFactorCoreWithoutCitations;
+    }
+
+    public double getMedianTwoYearImpactFactor() {
+        medianTwoYearImpactFactor = getMedian(twoYearImpactFactor);
+        return medianTwoYearImpactFactor;
+    }
+
+    public double getMaxTwoYearImpactFactor() {
+        maxTwoYearImpactFactor = getMax(twoYearImpactFactor);
+        return maxTwoYearImpactFactor;
+    }
+
+    public double getMedianTwoYearImpactFactorWithoutCitations() {
+        medianTwoYearImpactFactorWithoutCitations = getMedian(twoYearImpactFactorWithoutCitations);
+        return medianTwoYearImpactFactorWithoutCitations;
+    }
+
+    public double getMaxTwoYearImpactFactorWithoutCitations() {
+        maxTwoYearImpactFactorWithoutCitations = getMax(twoYearImpactFactorWithoutCitations);
+        return maxTwoYearImpactFactorWithoutCitations;
+    }
+
+    public double getMedianTwoYearImpactFactorWithCitations() {
+        medianTwoYearImpactFactorWithCitations = getMedian(twoYearImpactFactorWithCitations);
+        return medianTwoYearImpactFactorWithCitations;
+    }
+
+    public double getMaxTwoYearImpactFactorWithCitations() {
+        maxTwoYearImpactFactorWithCitations = getMax(twoYearImpactFactorWithCitations);
+        return maxTwoYearImpactFactorWithCitations;
+    }
+
+    public double getMedianTwoYearСoefficientAuthorSelfCitation() {
+        medianTwoYearСoefficientAuthorSelfCitation = getMedian(twoYearСoefficientAuthorSelfCitation);
+        return medianTwoYearСoefficientAuthorSelfCitation;
+    }
+
+
+    public double getMedianTwoYearСoefficientAuthorCitation() {
+        medianTwoYearСoefficientAuthorCitation = getMedian(twoYearСoefficientAuthorCitation);
+        return medianTwoYearСoefficientAuthorCitation;
+    }
+
+    public double getMaxProbabilityQuotingReading(){
+        maxProbabilityQuotingReading = getMax(probabilityQuotingReading);
+        return maxProbabilityQuotingReading;
+    }
+    public double getMax(HashMap<Integer, Double> map){
+        double max = 0;
+        List<Double> list = new ArrayList<Double>();
+        for (double value : map.values()) {
+            if (!(value<0)){
+                list.add(value);}
+        }
+        Double[] sortedArray = sortArray(list);
+        if (sortedArray.length!=0) {
+            max = sortedArray[sortedArray.length-1];
+        } else {
+            max = -1.0;
+        }
+        return max;
+    };
+    public double getMedianProbabilityQuotingReading(){
+        medianProbabilityQuotingReading = getMedian(probabilityQuotingReading);
+        return medianProbabilityQuotingReading;
+    }
+
+    public double getMedian(HashMap<Integer, Double> map){
+        double median;
+        List<Double> list = new ArrayList<Double>();
+        for (double value : map.values()) {
+            if (!(value<0)){
+            list.add(value);}
+        }
+        Double[] sortedArray = sortArray(list);
+        if (sortedArray.length==0) {
+            median=-1.0;
+        } else {
+            int middle = sortedArray.length/2;
+            //float medianValue = 0; //declare variable
+            if (sortedArray.length%2 == 1)
+                median = sortedArray[middle];
+            else
+                median = (sortedArray[middle-1] + sortedArray[middle]) / 2;
+        }
+        return median;
+    };
+
+
+    public Double[] sortArray(List<Double> list){
+        Double[] double_array = new Double[list.size()];
+        list.toArray(double_array);
+        Arrays.sort(double_array);//
+        return double_array;
     }
 
     public void addArticleListSource(Article article) {

@@ -30,7 +30,7 @@ public class ParseTableJournal {
                 try {
                     Row row = it.next();
                     if (row.getRowNum() == 0) {continue;}
-                    System.out.println("читается строчка из Uni "+y);
+                    //System.out.println("читается строчка из Uni "+y);
                     int number=0;
                         if (row.getCell(0).getCellTypeEnum() == CellType.STRING) {
                             number = Integer.parseInt(row.getCell(0).getStringCellValue());

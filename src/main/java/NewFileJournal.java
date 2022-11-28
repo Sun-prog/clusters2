@@ -135,6 +135,185 @@ public class NewFileJournal {
         cell = row.createCell(26, CellType.STRING);
         cell.setCellValue("Нахождение в id-journals-rus");
 
+        //27 медиана Вероятность цитирования после прочтения
+        cell = row.createCell(27, CellType.STRING);
+        cell.setCellValue("Медиана вероятности цитирования после прочтения");
+
+        //28 максимум Вероятность цитирования после прочтения
+        cell = row.createCell(28, CellType.STRING);
+        cell.setCellValue("Максимум вероятности цитирования после прочтения");
+
+        //29 массив Вероятность цитирования после прочтения по годам
+        cell = row.createCell(29, CellType.STRING);
+        cell.setCellValue("массив значений вероятности цитирования после прочтения");
+
+        //30 медиана Двухлетний импакт-фактор по ядру РИНЦ
+        cell = row.createCell(30, CellType.STRING);
+        cell.setCellValue("Медиана Двухлетний импакт-фактор по ядру РИНЦ");
+
+        //31 максимум Двухлетний импакт-фактор по ядру РИНЦ
+        cell = row.createCell(31, CellType.STRING);
+        cell.setCellValue("Максимум Двухлетний импакт-фактор по ядру РИНЦ");
+
+        //32 массив Двухлетний импакт-фактор по ядру РИНЦ
+        cell = row.createCell(32, CellType.STRING);
+        cell.setCellValue("массив значений Двухлетний импакт-фактор по ядру РИНЦ");
+
+
+        //33 медиана Двухлетний импакт-фактор по ядру РИНЦ без самоцитирования
+        cell = row.createCell(33, CellType.STRING);
+        cell.setCellValue("Медиана Двухлетний импакт-фактор по ядру РИНЦ без самоцитирования");
+
+        //34 максимум Двухлетний импакт-фактор по ядру РИНЦ без самоцитирования
+        cell = row.createCell(34, CellType.STRING);
+        cell.setCellValue("Максимум Двухлетний импакт-фактор по ядру РИНЦ без самоцитирования");
+
+        //35 массив Двухлетний импакт-фактор по ядру РИНЦ без самоцитирования
+        cell = row.createCell(35, CellType.STRING);
+        cell.setCellValue("массив значений Двухлетний импакт-фактор по ядру РИНЦ без самоцитирования");
+
+
+        //36 медиана Двухлетний импакт-фактор РИНЦ
+        cell = row.createCell(36, CellType.STRING);
+        cell.setCellValue("Медиана Двухлетний импакт-фактор РИНЦ");
+
+        //37 максимум Двухлетний импакт-фактор РИНЦ
+        cell = row.createCell(37, CellType.STRING);
+        cell.setCellValue("Максимум Двухлетний импакт-фактор РИНЦ");
+
+        //38 массив Двухлетний импакт-фактор РИНЦ
+        cell = row.createCell(38, CellType.STRING);
+        cell.setCellValue("массив значений Двухлетний импакт-фактор РИНЦ");
+
+
+        //39 медиана Двухлетний импакт-фактор РИНЦ без самоцитирования
+        cell = row.createCell(39, CellType.STRING);
+        cell.setCellValue("Медиана Двухлетний импакт-фактор РИНЦ без самоцитирования");
+
+        //40 максимум Двухлетний импакт-фактор РИНЦ без самоцитирования
+        cell = row.createCell(40, CellType.STRING);
+        cell.setCellValue("Максимум Двухлетний импакт-фактор РИНЦ без самоцитирования");
+
+        //41 массив Двухлетний импакт-фактор РИНЦ без самоцитирования
+        cell = row.createCell(41, CellType.STRING);
+        cell.setCellValue("массив значений Двухлетний импакт-фактор РИНЦ без самоцитирования");
+
+
+        //42 медиана Двухлетний импакт-фактор РИНЦ с учетом цитирования из всех источников
+        cell = row.createCell(42, CellType.STRING);
+        cell.setCellValue("Медиана Двухлетний импакт-фактор РИНЦ с учетом цитирования из всех источников");
+
+        //43 максимум Двухлетний импакт-фактор РИНЦ с учетом цитирования из всех источников
+        cell = row.createCell(43, CellType.STRING);
+        cell.setCellValue("Максимум Двухлетний импакт-фактор РИНЦ с учетом цитирования из всех источников");
+
+        //44 массив Двухлетний импакт-фактор РИНЦ с учетом цитирования из всех источников
+        cell = row.createCell(44, CellType.STRING);
+        cell.setCellValue("массив значений Двухлетний импакт-фактор РИНЦ с учетом цитирования из всех источников");
+
+
+        //45 медиана Двухлетний коэффициент авторского самоцитирования
+        cell = row.createCell(45, CellType.STRING);
+        cell.setCellValue("Медиана Двухлетний коэффициент авторского самоцитирования");
+
+        //46 максимум Двухлетний коэффициент авторского самоцитирования
+        cell = row.createCell(46, CellType.STRING);
+        cell.setCellValue("Максимум Двухлетний коэффициент авторского самоцитирования");
+
+        //47 массив Двухлетний коэффициент авторского самоцитирования
+        cell = row.createCell(47, CellType.STRING);
+        cell.setCellValue("массив значений Двухлетний коэффициент авторского самоцитирования");
+
+
+        //48 медиана Двухлетний коэффициент самоцитирования
+        cell = row.createCell(48, CellType.STRING);
+        cell.setCellValue("Медиана Двухлетний коэффициент самоцитирования");
+
+        //49 максимум Двухлетний коэффициент самоцитирования
+        cell = row.createCell(49, CellType.STRING);
+        cell.setCellValue("Максимум Двухлетний коэффициент самоцитирования");
+
+        //50 массив Двухлетний коэффициент самоцитирования
+        cell = row.createCell(50, CellType.STRING);
+        cell.setCellValue("массив значений Двухлетний коэффициент самоцитирования");
+
+
+        //51 медиана Десятилетний индекс Хирша
+        cell = row.createCell(51, CellType.STRING);
+        cell.setCellValue("Медиана Десятилетний индекс Хирша");
+
+        //52 максимум Десятилетний индекс Хирша
+        cell = row.createCell(52, CellType.STRING);
+        cell.setCellValue("Максимум Десятилетний индекс Хирша");
+
+        //53 массив Десятилетний индекс Хирша
+        cell = row.createCell(53, CellType.STRING);
+        cell.setCellValue("массив значений Десятилетний индекс Хирша");
+
+
+        //54 медиана Индекс Джини
+        cell = row.createCell(54, CellType.STRING);
+        cell.setCellValue("Медиана Индекс Джини");
+
+        //55 максимум Индекс Джини
+        cell = row.createCell(55, CellType.STRING);
+        cell.setCellValue("Максимум Индекс Джини");
+
+        //56 массив Индекс Джини
+        cell = row.createCell(56, CellType.STRING);
+        cell.setCellValue("массив значений Индекс Джини");
+
+
+        //57 медиана Индекс Херфиндаля по организациям авторов
+        cell = row.createCell(57, CellType.STRING);
+        cell.setCellValue("Медиана Индекс Херфиндаля по организациям авторов");
+
+        //58 максимум Индекс Херфиндаля по организациям авторов
+        cell = row.createCell(58, CellType.STRING);
+        cell.setCellValue("Максимум Индекс Херфиндаля по организациям авторов");
+
+        //59 массив Индекс Херфиндаля по организациям авторов
+        cell = row.createCell(59, CellType.STRING);
+        cell.setCellValue("массив значений Индекс Херфиндаля по организациям авторов");
+
+
+        //60 медиана Место журнала в рейтинге SCIENCE INDEX
+        cell = row.createCell(60, CellType.STRING);
+        cell.setCellValue("Медиана Место журнала в рейтинге SCIENCE INDEX");
+
+        //61 максимум Место журнала в рейтинге SCIENCE INDEX
+        cell = row.createCell(61, CellType.STRING);
+        cell.setCellValue("Максимум Место журнала в рейтинге SCIENCE INDEX");
+
+        //62 массив Место журнала в рейтинге SCIENCE INDEX
+        cell = row.createCell(62, CellType.STRING);
+        cell.setCellValue("массив значений Место журнала в рейтинге SCIENCE INDEX");
+
+
+        //63 медиана Общее число цитирований журнала в текущем году
+        cell = row.createCell(63, CellType.STRING);
+        cell.setCellValue("Медиана Общее число цитирований журнала в текущем году");
+
+        //64 максимум Общее число цитирований журнала в текущем году
+        cell = row.createCell(64, CellType.STRING);
+        cell.setCellValue("Максимум Общее число цитирований журнала в текущем году");
+
+        //65 массив Общее число цитирований журнала в текущем году
+        cell = row.createCell(65, CellType.STRING);
+        cell.setCellValue("массив значений Общее число цитирований журнала в текущем году");
+
+
+        //66 медиана Общее число цитирований журнала в текущем году в том числе: самоцитирований"
+        cell = row.createCell(66, CellType.STRING);
+        cell.setCellValue("Медиана Общее число цитирований журнала в текущем году, в том числе: самоцитирований");
+
+        //67 максимум Общее число цитирований журнала в текущем году в том числе: самоцитирований"
+        cell = row.createCell(67, CellType.STRING);
+        cell.setCellValue("Максимум Общее число цитирований журнала в текущем году, в том числе: самоцитирований");
+
+        //68 массив Общее число цитирований журнала в текущем году в том числе: самоцитирований"
+        cell = row.createCell(68, CellType.STRING);
+        cell.setCellValue("массив значений Общее число цитирований журнала в текущем году, в том числе: самоцитирований");
 
         try {
 
@@ -249,14 +428,195 @@ public class NewFileJournal {
                 cell = row.createCell(25, CellType.STRING);
                 cell.setCellValue(journal.getNumberIssuesPerYear());
 
-                //26 Число выпусков в год
+                //26 находится ли в таблице id rus
                 cell = row.createCell(26, CellType.BOOLEAN);
                 cell.setCellValue(journal.isRus);
+
+                //27 медиана Вероятность цитирования после прочтения
+                cell = row.createCell(27, CellType.NUMERIC);
+                cell.setCellValue(journal.getMedianProbabilityQuotingReading());
+
+                //28 максимум Вероятность цитирования после прочтения
+                cell = row.createCell(28, CellType.NUMERIC);
+                cell.setCellValue(journal.getMaxProbabilityQuotingReading());
+
+                //29 массив Вероятность цитирования после прочтения по годам
+                cell = row.createCell(29, CellType.STRING);
+                cell.setCellValue(journal.getProbabilityQuotingReading());
+
+
+                //30 медиана Двухлетний импакт-фактор по ядру РИНЦ
+                cell = row.createCell(30, CellType.NUMERIC);
+                cell.setCellValue(journal.getMedianTwoYearImpactFactorCore());
+
+                //31 максимум Двухлетний импакт-фактор по ядру РИНЦ
+                cell = row.createCell(31, CellType.NUMERIC);
+                cell.setCellValue(journal.getMaxTwoYearImpactFactorCore());
+
+                //32 массив Двухлетний импакт-фактор по ядру РИНЦ
+                cell = row.createCell(32, CellType.STRING);
+                cell.setCellValue(journal.getTwoYearImpactFactorCore());
+
+
+                //33 медиана Двухлетний импакт-фактор по ядру РИНЦ без самоцитирования
+                cell = row.createCell(33, CellType.NUMERIC);
+                cell.setCellValue(journal.getMedianTwoYearImpactFactorCoreWithoutCitations());
+
+                //34 максимум Двухлетний импакт-фактор по ядру РИНЦ без самоцитирования
+                cell = row.createCell(34, CellType.NUMERIC);
+                cell.setCellValue(journal.getMaxTwoYearImpactFactorCoreWithoutCitations());
+
+                //35 массив Двухлетний импакт-фактор по ядру РИНЦ без самоцитирования
+                cell = row.createCell(35, CellType.STRING);
+                cell.setCellValue(journal.getTwoYearImpactFactorCoreWithoutCitations());
+
+
+                //36 медиана Двухлетний импакт-фактор РИНЦ
+                cell = row.createCell(36, CellType.NUMERIC);
+                cell.setCellValue(journal.getMedianTwoYearImpactFactor());
+
+                //37 максимум Двухлетний импакт-фактор РИНЦ
+                cell = row.createCell(37, CellType.NUMERIC);
+                cell.setCellValue(journal.getMaxTwoYearImpactFactor());
+
+                //38 массив Двухлетний импакт-фактор РИНЦ
+                cell = row.createCell(38, CellType.STRING);
+                cell.setCellValue(journal.getTwoYearImpactFactor());
+
+
+                //39 медиана Двухлетний импакт-фактор РИНЦ без самоцитирования
+                cell = row.createCell(39, CellType.NUMERIC);
+                cell.setCellValue(journal.getMedianTwoYearImpactFactorWithCitations());
+
+                //40 максимум Двухлетний импакт-фактор РИНЦ без самоцитирования
+                cell = row.createCell(40, CellType.NUMERIC);
+                cell.setCellValue(journal.getMaxTwoYearImpactFactorWithoutCitations());
+
+                //41 массив Двухлетний импакт-фактор РИНЦ без самоцитирования
+                cell = row.createCell(41, CellType.STRING);
+                cell.setCellValue(journal.getTwoYearImpactFactorWithoutCitations());
+
+
+                //42 медиана Двухлетний импакт-фактор РИНЦ с учетом цитирования из всех источников
+                cell = row.createCell(42, CellType.NUMERIC);
+                cell.setCellValue(journal.getMedianTwoYearImpactFactorWithCitations());
+
+                //43 максимум Двухлетний импакт-фактор РИНЦ с учетом цитирования из всех источников
+                cell = row.createCell(43, CellType.NUMERIC);
+                cell.setCellValue(journal.getMaxTwoYearImpactFactorWithCitations());
+
+                //44 массив Двухлетний импакт-фактор РИНЦ с учетом цитирования из всех источников
+                cell = row.createCell(44, CellType.STRING);
+                cell.setCellValue(journal.getTwoYearImpactFactorWithCitations());
+
+
+                //45 медиана Двухлетний коэффициент авторского самоцитирования
+                cell = row.createCell(45, CellType.NUMERIC);
+                cell.setCellValue(journal.getMedianTwoYearСoefficientAuthorSelfCitation());
+
+                //46 максимум Двухлетний коэффициент авторского самоцитирования
+                cell = row.createCell(46, CellType.NUMERIC);
+                cell.setCellValue(journal.getMaxTwoYearСoefficientAuthorSelfCitation());
+
+                //47 массив Двухлетний коэффициент авторского самоцитирования
+                cell = row.createCell(47, CellType.STRING);
+                cell.setCellValue(journal.getTwoYearСoefficientAuthorSelfCitation());
+
+
+                //48 медиана Двухлетний коэффициент самоцитирования
+                cell = row.createCell(48, CellType.NUMERIC);
+                cell.setCellValue(journal.getMedianTwoYearСoefficientAuthorCitation());
+
+                //49 максимум Двухлетний коэффициент самоцитирования
+                cell = row.createCell(49, CellType.NUMERIC);
+                cell.setCellValue(journal.getMaxTwoYearСoefficientAuthorCitation());
+
+                //50 массив Двухлетний коэффициент самоцитирования
+                cell = row.createCell(50, CellType.STRING);
+                cell.setCellValue(journal.getTwoYearСoefficientAuthorCitation());
+
+
+                //51 медиана Десятилетний индекс Хирша
+                cell = row.createCell(51, CellType.NUMERIC);
+                cell.setCellValue(journal.getMedianTenYearHirschIndex());
+
+                //52 максимум Десятилетний индекс Хирша
+                cell = row.createCell(52, CellType.NUMERIC);
+                cell.setCellValue(journal.getMaxTenYearHirschIndex());
+
+                //53 массив Десятилетний индекс Хирша
+                cell = row.createCell(53, CellType.STRING);
+                cell.setCellValue(journal.getTenYearHirschIndex());
+
+
+                //54 медиана Индекс Джини
+                cell = row.createCell(54, CellType.NUMERIC);
+                cell.setCellValue(journal.getMedianIndexGini());
+
+                //55 максимум Индекс Джини
+                cell = row.createCell(55, CellType.NUMERIC);
+                cell.setCellValue(journal.getMaxIndexGini());
+
+                //56 массив Индекс Джини
+                cell = row.createCell(56, CellType.STRING);
+                cell.setCellValue(journal.getIndexGini());
+
+
+                //57 медиана Индекс Херфиндаля по организациям авторов
+                cell = row.createCell(57, CellType.NUMERIC);
+                cell.setCellValue(journal.getMedianIndexHerfindahlAuthorOrganizations());
+
+                //58 максимум Индекс Херфиндаля по организациям авторов
+                cell = row.createCell(58, CellType.NUMERIC);
+                cell.setCellValue(journal.getMaxIndexHerfindahlAuthorOrganizations());
+
+                //59 массив Индекс Херфиндаля по организациям авторов
+                cell = row.createCell(59, CellType.STRING);
+                cell.setCellValue(journal.getIndexHerfindahlAuthorOrganizations());
+
+
+                //60 медиана Место журнала в рейтинге SCIENCE INDEX
+                cell = row.createCell(60, CellType.NUMERIC);
+                cell.setCellValue(journal.getMedianPlaceScienceIndexRanking());
+
+                //61 максимум Место журнала в рейтинге SCIENCE INDEX
+                cell = row.createCell(61, CellType.NUMERIC);
+                cell.setCellValue(journal.getMaxPlaceScienceIndexRanking());
+
+                //62 массив Место журнала в рейтинге SCIENCE INDEX
+                cell = row.createCell(62, CellType.STRING);
+                cell.setCellValue(journal.getPlaceScienceIndexRanking());
+
+
+                //63 медиана Общее число цитирований журнала в текущем году
+                cell = row.createCell(63, CellType.NUMERIC);
+                cell.setCellValue(journal.getMedianTotalNumberCitationsCurrentYear());
+
+                //64 максимум Общее число цитирований журнала в текущем году
+                cell = row.createCell(64, CellType.NUMERIC);
+                cell.setCellValue(journal.getMaxTotalNumberCitationsCurrentYear());
+
+                //65 массив Общее число цитирований журнала в текущем году
+                cell = row.createCell(65, CellType.STRING);
+                cell.setCellValue(journal.getTotalNumberCitationsCurrentYear());
+
+
+                //66 медиана Общее число цитирований журнала в текущем году в том числе: самоцитирований"
+                cell = row.createCell(66, CellType.NUMERIC);
+                cell.setCellValue(journal.getMedianTotalNumberCitationsCurrentYearSelf());
+                //67 максимум Общее число цитирований журнала в текущем году в том числе: самоцитирований"
+                cell = row.createCell(67, CellType.NUMERIC);
+                cell.setCellValue(journal.getMaxTotalNumberCitationsCurrentYearSelf());
+
+                //68 массив Общее число цитирований журнала в текущем году в том числе: самоцитирований"
+                cell = row.createCell(68, CellType.STRING);
+                cell.setCellValue(journal.getTotalNumberCitationsCurrentYearSelf());
+
 
             }
 
 
-            File file = new File("C:/Users/grupp/Documents/data/article/journal.xlsx");
+            File file = new File("C:/Users/doc5.xlsx");
             file.getParentFile().mkdirs();
 
             FileOutputStream outFile = new FileOutputStream(file);

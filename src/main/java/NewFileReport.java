@@ -121,12 +121,158 @@ public class NewFileReport {
         cell.setCellValue("Number read in file id journals rus");
 
         cell = row.createCell(1, CellType.NUMERIC);
-        cell.setCellValue(listCheck.get(8));
+        cell.setCellValue(listCheck.get(22));
 
         rownum++;
         row = sheet.createRow(rownum);
 
         // 10 строка
+        cell = row.createCell(0, CellType.STRING);
+        cell.setCellValue("Number nullProbabilityQuotingReading");
+
+        cell = row.createCell(1, CellType.NUMERIC);
+        cell.setCellValue(listCheck.get(8));
+
+        rownum++;
+        row = sheet.createRow(rownum);
+        // 11 строка
+        cell = row.createCell(0, CellType.STRING);
+        cell.setCellValue("Number nullTwoYearImpactFactorCore");
+
+        cell = row.createCell(1, CellType.NUMERIC);
+        cell.setCellValue(listCheck.get(9));
+
+        rownum++;
+        row = sheet.createRow(rownum);
+
+        // 12 строка
+        cell = row.createCell(0, CellType.STRING);
+        cell.setCellValue("Number nullTwoYearImpactFactorCoreWithoutCitations");
+
+        cell = row.createCell(1, CellType.NUMERIC);
+        cell.setCellValue(listCheck.get(10));
+
+        rownum++;
+        row = sheet.createRow(rownum);
+
+        // 13 строка
+        cell = row.createCell(0, CellType.STRING);
+        cell.setCellValue("Number nullTwoYearImpactFactor");
+
+        cell = row.createCell(1, CellType.NUMERIC);
+        cell.setCellValue(listCheck.get(11));
+
+        rownum++;
+        row = sheet.createRow(rownum);
+
+        // 14 строка
+        cell = row.createCell(0, CellType.STRING);
+        cell.setCellValue("Number nullTwoYearImpactFactorWithoutCitations");
+
+        cell = row.createCell(1, CellType.NUMERIC);
+        cell.setCellValue(listCheck.get(12));
+
+        rownum++;
+        row = sheet.createRow(rownum);
+
+        // 15 строка
+        cell = row.createCell(0, CellType.STRING);
+        cell.setCellValue("Number nullTwoYearImpactFactorWithCitations");
+
+        cell = row.createCell(1, CellType.NUMERIC);
+        cell.setCellValue(listCheck.get(13));
+
+        rownum++;
+        row = sheet.createRow(rownum);
+
+        // 16 строка
+        cell = row.createCell(0, CellType.STRING);
+        cell.setCellValue("Number nullTwoYearСoefficientAuthorSelfCitation");
+
+        cell = row.createCell(1, CellType.NUMERIC);
+        cell.setCellValue(listCheck.get(14));
+
+        rownum++;
+        row = sheet.createRow(rownum);
+
+        // 17 строка
+        cell = row.createCell(0, CellType.STRING);
+        cell.setCellValue("Number nullTwoYearСoefficientAuthorCitation");
+
+        cell = row.createCell(1, CellType.NUMERIC);
+        cell.setCellValue(listCheck.get(15));
+
+        rownum++;
+        row = sheet.createRow(rownum);
+
+        int nullIndexGini=0;
+        int nullIndexHerfindahlAuthorOrganizations=0;
+        int nullPlaceScienceIndexRanking=0;
+        int nullTotalNumberCitationsCurrentYear=0;
+        int nullTotalNumberCitationsCurrentYearSelf=0;
+
+        // 18 строка
+        cell = row.createCell(0, CellType.STRING);
+        cell.setCellValue("Number nullTenYearHirschIndex");
+
+        cell = row.createCell(1, CellType.NUMERIC);
+        cell.setCellValue(listCheck.get(16));
+
+        rownum++;
+        row = sheet.createRow(rownum);
+
+        // 19 строка
+        cell = row.createCell(0, CellType.STRING);
+        cell.setCellValue("Number nullIndexGini");
+
+        cell = row.createCell(1, CellType.NUMERIC);
+        cell.setCellValue(listCheck.get(17));
+
+        rownum++;
+        row = sheet.createRow(rownum);
+
+
+        // 20 строка
+        cell = row.createCell(0, CellType.STRING);
+        cell.setCellValue("Number nullIndexHerfindahlAuthorOrganizations");
+
+        cell = row.createCell(1, CellType.NUMERIC);
+        cell.setCellValue(listCheck.get(18));
+
+        rownum++;
+        row = sheet.createRow(rownum);
+
+        // 21 строка
+        cell = row.createCell(0, CellType.STRING);
+        cell.setCellValue("Number nullPlaceScienceIndexRanking");
+
+        cell = row.createCell(1, CellType.NUMERIC);
+        cell.setCellValue(listCheck.get(19));
+
+        rownum++;
+        row = sheet.createRow(rownum);
+
+        // 22 строка
+        cell = row.createCell(0, CellType.STRING);
+        cell.setCellValue("Number nullTotalNumberCitationsCurrentYear");
+
+        cell = row.createCell(1, CellType.NUMERIC);
+        cell.setCellValue(listCheck.get(20));
+
+        rownum++;
+        row = sheet.createRow(rownum);
+
+        // 23 строка
+        cell = row.createCell(0, CellType.STRING);
+        cell.setCellValue("Number nullTotalNumberCitationsCurrentYearSelf");
+
+        cell = row.createCell(1, CellType.NUMERIC);
+        cell.setCellValue(listCheck.get(21));
+
+        rownum++;
+        row = sheet.createRow(rownum);
+
+        // 24 строка
         cell = row.createCell(0, CellType.STRING);
         cell.setCellValue("Number break clusters");
 
@@ -157,7 +303,7 @@ public class NewFileReport {
             }
 
 
-            File file = new File("C:/Users/grupp/Documents/data/article/report.xlsx");
+            File file = new File("C:/Users/doc7.xlsx");
             file.getParentFile().mkdirs();
 
             FileOutputStream outFile = new FileOutputStream(file);
