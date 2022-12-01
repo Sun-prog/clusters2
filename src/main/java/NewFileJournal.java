@@ -14,7 +14,7 @@ import java.util.List;
 //import org.jsoup.nodes.Document;
 
 public class NewFileJournal {
-    public static void createFile() {
+    public static void createFile(String pathOutputFile) {
 
         XSSFWorkbook workbook = new XSSFWorkbook();
         XSSFSheet sheet = workbook.createSheet("Journals");
@@ -315,6 +315,23 @@ public class NewFileJournal {
         cell = row.createCell(68, CellType.STRING);
         cell.setCellValue("массив значений Общее число цитирований журнала в текущем году, в том числе: самоцитирований");
 
+
+        //69 находится ли журнал в таблице RSCI рейтинг
+        cell = row.createCell(69, CellType.STRING);
+        cell.setCellValue("Присутствие в таблице RSCI рейтинг");
+
+        //70 Группа OECD
+        cell = row.createCell(70, CellType.STRING);
+        cell.setCellValue("Группа OECD");
+
+        //71 Нормированный рейтинг RSCI
+        cell = row.createCell(71, CellType.STRING);
+        cell.setCellValue("Нормированный рейтинг RSCI");
+
+        //72 квартиль RSCI
+        cell = row.createCell(72, CellType.STRING);
+        cell.setCellValue("Квартиль RSCI");
+
         try {
 
 
@@ -612,11 +629,27 @@ public class NewFileJournal {
                 cell = row.createCell(68, CellType.STRING);
                 cell.setCellValue(journal.getTotalNumberCitationsCurrentYearSelf());
 
+                //69 находится ли журнал в таблице RSCI рейтинг
+                cell = row.createCell(69, CellType.BOOLEAN);
+                cell.setCellValue(journal.isRatingRSCI);
+
+                //70 Группа OECD
+                cell = row.createCell(70, CellType.STRING);
+                cell.setCellValue(journal.getOesdRSCI());
+
+                //71 Нормированный рейтинг RSCI
+                cell = row.createCell(71, CellType.NUMERIC);
+                cell.setCellValue(journal.getRatingRSCI());
+
+                //72 квартиль RSCI
+                cell = row.createCell(72, CellType.NUMERIC);
+                cell.setCellValue(journal.getQuartileRSCI());
+
 
             }
 
 
-            File file = new File("C:/Users/doc5.xlsx");
+            File file = new File(pathOutputFile);
             file.getParentFile().mkdirs();
 
             FileOutputStream outFile = new FileOutputStream(file);

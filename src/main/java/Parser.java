@@ -134,7 +134,7 @@ public class Parser {
     }
 
 
-    public static ArrayList<Integer> parse(String name) throws InterruptedException {
+    public static ArrayList<Integer> parse(String name,String pathUpdateFile) throws InterruptedException {
         InputStream in = null;
         XSSFWorkbook wb = null;
         String massivArticle = null;
@@ -308,7 +308,7 @@ public class Parser {
 
             file.close();
 
-            FileOutputStream outFile =new FileOutputStream(new File("C:/Users/doc6.xlsx"));
+            FileOutputStream outFile =new FileOutputStream(new File(pathUpdateFile));
             wb.write(outFile);
             outFile.close();
 

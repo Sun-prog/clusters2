@@ -16,12 +16,14 @@ import java.util.List;
 //import org.jsoup.nodes.Document;
 
 public class NewFileReport {
-    public static void createFile(ArrayList<Integer> listCheck) {
+    public static void createFile(ArrayList<Integer> listCheck,String pathOutputFile) {
         // Document doc;
         XSSFWorkbook workbook = new XSSFWorkbook();
         XSSFSheet sheet = workbook.createSheet("report");
 
         List<Cluster> list = ClusterDAO.listCluster();
+        List<String> notReadRSCI = MessageDAO.listMessage();
+        int read = MessageDAO.getNumberReadRSCI();
 
         int rownum = 0;
         Cell cell;
@@ -301,9 +303,37 @@ public class NewFileReport {
                     cell.setCellValue(cluster.getArrayJournal());
                 }
             }
+            //2 блок
+            rownum++;
+            row = sheet.createRow(rownum);
+            cell = row.createCell(1, CellType.STRING);
+            cell.setCellValue("не найдены журналы из таблицы rating rsci");
+
+                // заполняем новую таблицу excel
+                for (String message : notReadRSCI) {
+                        rownum++;
+                        row = sheet.createRow(rownum);
+
+                        cell = row.createCell(1, CellType.STRING);
+                        cell.setCellValue(message);
+
+                }
+
+                //3 блок
+            rownum++;
+            row = sheet.createRow(rownum);
+
+            // 1 строка 3 блока
+            cell = row.createCell(0, CellType.STRING);
+            cell.setCellValue("Number find journals rating rsci");
+
+            cell = row.createCell(1, CellType.NUMERIC);
+            cell.setCellValue(read);
 
 
-            File file = new File("C:/Users/doc7.xlsx");
+
+
+            File file = new File(pathOutputFile);
             file.getParentFile().mkdirs();
 
             FileOutputStream outFile = new FileOutputStream(file);

@@ -23,9 +23,15 @@ public class Journal {
     boolean isUniRince;
     boolean isUniRus;
     boolean isRus;
+    boolean isRatingRSCI;
 
     String nameJournalUni;
     String nameJournalRince;
+    String nameJournalRSCI;
+
+    String oesdRSCI;
+    double quartileRSCI;
+    double ratingRSCI;
 
     String place;
     String city;
@@ -99,6 +105,8 @@ public class Journal {
     double maxTotalNumberCitationsCurrentYearSelf;
 
 
+
+
     public Journal(int number, Cluster cluster) {
         this.number = number;
         addCluster(cluster);
@@ -122,6 +130,10 @@ public class Journal {
         this.numberCitations = 0;
         this.numberArticlesPerIssue = 0;
         this.numberIssuesPerYear = 0;
+        this.isRatingRSCI = false;
+        this.quartileRSCI=-1;
+        this.ratingRSCI=-1;
+        this.oesdRSCI="null";
 
     }
 
@@ -823,5 +835,45 @@ public class Journal {
 
     public void setNumberIssuesPerYear(int numberIssuesPerYear) {
         this.numberIssuesPerYear = numberIssuesPerYear;
+    }
+
+    public boolean isRatingRSCI() {
+        return isRatingRSCI;
+    }
+
+    public void setRatingRSCI(boolean ratingRSCI) {
+        isRatingRSCI = ratingRSCI;
+    }
+
+    public String getNameJournalRSCI() {
+        return nameJournalRSCI;
+    }
+
+    public void setNameJournalRSCI(String nameJournalRSCI) {
+        this.nameJournalRSCI = nameJournalRSCI;
+    }
+
+    public String getOesdRSCI() {
+        return oesdRSCI;
+    }
+
+    public void setOesdRSCI(String oesdRSCI) {
+        this.oesdRSCI = oesdRSCI;
+    }
+
+    public double getQuartileRSCI() {
+        return quartileRSCI;
+    }
+
+    public void setQuartileRSCI(double quartileRSCI) {
+        this.quartileRSCI = quartileRSCI;
+    }
+
+    public double getRatingRSCI() {
+        return ratingRSCI;
+    }
+
+    public void setRatingRSCI(double ratingRSCI) {
+        this.ratingRSCI = ratingRSCI;
     }
 }
